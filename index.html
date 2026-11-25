@@ -100,44 +100,10 @@
       foundation in Python, machine learning, and analytical thinking.
     </p>
 	
-<a href="myresume.pdf" class="btn" id="downloadResume">
+<a href="myresume.pdf" class="btn" download>
   Download Resume
 </a>
-
-<script>
-document.getElementById("downloadResume")
-  .addEventListener("click", async function (event) {
-    event.preventDefault();
-
-    try {
-      const response = await fetch(
-        "./myresume.pdf"
-      );
-
-      if (!response.ok) {
-        throw new Error("PDF file not found");
-      }
-
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "myresume.pdf";
-
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    } catch (error) {
-      alert(
-        "Could not download the resume. Check the PDF path and run the project using a local web server."
-      );
-      console.error(error);
-    }
-  });
-</script>
+	  
 
 
 
